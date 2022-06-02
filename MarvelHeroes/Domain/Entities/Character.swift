@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 // MARK: - Character
-public struct Character: Codable {
+struct Character: Codable {
     let id: Int
     let name, description, modified, resourceURI: String
     let thumbnail: Thumbnail

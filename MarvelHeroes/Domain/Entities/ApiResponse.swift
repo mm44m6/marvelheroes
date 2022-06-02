@@ -7,8 +7,8 @@
 
 import Foundation
 
-public struct ApiResponse: Decodable {
-    public let status: String?
-    public let message: String?
-    public let data: ApiResultContainer?
+struct ApiResponse: Decodable {
+    let status: String?
+    let message: String?
+    let data: ApiResultContainer?
 }

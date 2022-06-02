@@ -9,7 +9,8 @@ import Foundation
 import UIKit
 
 protocol Coordinator {
-    init(navigationController: UINavigationController)
+    init(navigationController: UINavigationController,
+         childViewControllers: [UIViewController])
     
     func start()
 }

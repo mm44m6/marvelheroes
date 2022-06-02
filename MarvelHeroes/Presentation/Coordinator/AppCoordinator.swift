@@ -7,37 +7,42 @@
 
 import UIKit
 
-final class AppCoordinator: Coordinator {
+final class AppCoordinator: Coordinator {    
     private let navigationController: UINavigationController
     
-    init(navigationController: UINavigationController) {
+    private var childViewControllers: [UIViewController]
+    
+    init(navigationController: UINavigationController,
+         childViewControllers: [UIViewController] = []) {
         self.navigationController = navigationController
+        self.childViewControllers = childViewControllers
     }
     
     func start() {
-        showCharacterList()
+        showCharactersList()
     }
     
-    private func showCharacterList() {
-        let viewController = CharacterListViewController()
+    private func showCharactersList() {
+        let viewController = CharactersListViewController()
         viewController.delegate = self
-        navigationController.setViewControllers([viewController], animated: true)
+        self.navigationController.viewControllers = [viewController]
     }
     
-    private func showCharacterDetails() {
-        let viewController = UIStoryboard(name: "CharacterDetailsViewController", bundle: nil)
-            .instantiateViewController(withIdentifier: "CharacterDetailsViewController") as! CharacterDetailsViewController
+    private func showCharacterDetails(with character: Character) {
+        let viewController = CharacterDetailsViewController()
         viewController.delegate = self
-        navigationController.setViewControllers([viewController], animated: true)
+        viewController.character = character
+        self.childViewControllers.append(viewController)
+        navigationController.pushViewController(viewController, animated: true)
     }
 }
 
-extension AppCoordinator: CharacterListViewControllerDelegate, CharacterDetailsViewControllerDelegate {
-    func navigateToFirstPage() {
-        showCharacterList()
+extension AppCoordinator: CharactersListViewControllerDelegate, CharacterDetailsViewControllerDelegate {
+    func navigateToCharactersList() {
+        showCharactersList()
     }
     
-    func navigateToCharacterDetails() {
-        showCharacterDetails()
+    func navigateToCharacterDetails(with character: Character) {
+        showCharacterDetails(with: character)
     }
 }

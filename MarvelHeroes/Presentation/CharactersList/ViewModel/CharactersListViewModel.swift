@@ -10,11 +10,13 @@ import RxSwift
 import RxCocoa
 
 
-protocol CharacterListViewModelProtocol {
+protocol CharactersListViewModelProtocol {
     func viewDidLoad() -> Void
+    var title: String { get }
+    var characters: BehaviorRelay<[Character]> { get }
 }
 
-class CharacterListViewModel: CharacterListViewModelProtocol {
+class CharactersListViewModel: CharactersListViewModelProtocol {
     private let fetchCharactersUseCase: FetchCharactersUseCaseProtocol
     
     let title: String

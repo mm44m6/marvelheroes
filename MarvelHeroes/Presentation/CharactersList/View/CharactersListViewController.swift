@@ -9,33 +9,31 @@ import Foundation
 import UIKit
 import RxSwift
 
-protocol CharacterListViewControllerDelegate: AnyObject {
-    func navigateToCharacterDetails()
+protocol CharactersListViewControllerDelegate: AnyObject {
+    func navigateToCharacterDetails(with character: Character)
 }
 
-class CharacterListViewController: UIViewController {
-    var delegate: CharacterListViewControllerDelegate?
-    var viewModel: CharacterListViewModel?
-    
-    let tableView = UITableView()
-    
-    let disposeBag = DisposeBag()
+class CharactersListViewController: UIViewController {
+    public var delegate: CharactersListViewControllerDelegate?
+    private var viewModel: CharactersListViewModelProtocol?
+    private let tableView = UITableView()
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = CharacterListViewModel()
+        viewModel = CharactersListViewModel()
         viewModel?.viewDidLoad()
         setupView()
-        populateTable()
     }
     
-    func setupView() {
+    private func setupView() {
         view.backgroundColor = .white
         title = viewModel?.title
         setupTableView()
+        populateTable()
     }
     
-    func setupTableView() {
+    private func setupTableView() {
         tableView.frame = self.view.frame
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -48,17 +46,22 @@ class CharacterListViewController: UIViewController {
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
-}
-
-
-extension CharacterListViewController {
-    func populateTable() {
+    
+    private func populateTable() {
         viewModel?.characters.bind(to: tableView.rx.items(cellIdentifier: "cell", cellType: UITableViewCell.self)) { (row, model, cell) in
             cell.textLabel?.text = "\(model.name) \(model.description)"
             cell.textLabel?.numberOfLines = 0
             cell.selectionStyle = .none
         }
         .disposed(by: disposeBag)
+        
+        teste()
+    }
+    
+    private func teste() {
+        tableView.rx.modelSelected(Character.self).subscribe(onNext:  { [weak self] value in
+            self?.delegate?.navigateToCharacterDetails(with: value)
+        }).disposed(by: disposeBag)
     }
 }
 
