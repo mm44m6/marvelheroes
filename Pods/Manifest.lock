@@ -1,4 +1,5 @@
 PODS:
+  - CryptoSwift (1.5.1)
   - Nimble (10.0.0)
   - Quick (5.0.1)
   - RxBlocking (6.5.0):
@@ -13,6 +14,7 @@ PODS:
     - RxSwift (= 6.5.0)
 
 DEPENDENCIES:
+  - CryptoSwift
   - Nimble
   - Quick
   - RxBlocking (= 6.5.0)
@@ -22,6 +24,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - CryptoSwift
     - Nimble
     - Quick
     - RxBlocking
@@ -31,6 +34,7 @@ SPEC REPOS:
     - RxTest
 
 SPEC CHECKSUMS:
+  CryptoSwift: c4f2debceb38bf44c80659afe009f71e23e4a082
   Nimble: 5316ef81a170ce87baf72dd961f22f89a602ff84
   Quick: 749aa754fd1e7d984f2000fe051e18a3a9809179
   RxBlocking: 04b5fd28bb5ea49f7d64b80db8bbfe50d9cc1c7d
@@ -39,6 +43,6 @@ SPEC CHECKSUMS:
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   RxTest: eb2d23adefc5a5ebf5779c7792fa3edfe6ebcc17
 
-PODFILE CHECKSUM: 4d15cde30dd67f4e23703a4d13777acf4be762e9
+PODFILE CHECKSUM: 30f3d03794e3f6482475945eee7ec3a635f9aa0d
 
 COCOAPODS: 1.11.3

@@ -13,6 +13,7 @@ end
 target 'MarvelHeroes' do
     pod 'RxSwift', '6.5.0'
     pod 'RxCocoa', '6.5.0'
+    pod 'CryptoSwift', '1.5.1'
 end
 
 target 'MarvelHeroesTests' do

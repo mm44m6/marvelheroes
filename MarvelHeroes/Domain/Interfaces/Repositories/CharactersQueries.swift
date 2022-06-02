@@ -8,5 +8,5 @@
 import Foundation
 
 protocol CharactersQueries {
-    
+    func fetchCharactersList(limit: Int, completion: @escaping (Result<[Character], Error>) -> Void)
 }

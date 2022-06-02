@@ -6,11 +6,24 @@
 //
 
 import Foundation
+import RxSwift
 
-class FetchCharactersUseCase: UseCase {
+protocol FetchCharactersUseCaseProtocol {
+    func execute(limit: Int,
+                 completion: @escaping (Result<[Character], Error>) -> Void)
+}
+
+class FetchCharactersUseCase: FetchCharactersUseCaseProtocol {
     private let charactersQueriesRepository: CharactersQueries
     
-    init(charactersQueriesRepository: CharactersQueries) {
+    init(charactersQueriesRepository: CharactersQueries = CharactersQueriesRepository()) {
         self.charactersQueriesRepository = charactersQueriesRepository
+    }
+    
+    func execute(limit: Int,
+                 completion: @escaping (Result<[Character], Error>) -> Void) {
+        charactersQueriesRepository.fetchCharactersList(limit: limit) { result in
+            completion(result)
+        }
     }
 }
