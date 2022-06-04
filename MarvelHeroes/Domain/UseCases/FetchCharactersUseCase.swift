@@ -10,6 +10,7 @@ import RxSwift
 
 protocol FetchCharactersUseCaseProtocol {
     func execute(limit: Int,
+                 offset: Int,
                  completion: @escaping (Result<[Character], Error>) -> Void)
 }
 
@@ -21,8 +22,9 @@ class FetchCharactersUseCase: FetchCharactersUseCaseProtocol {
     }
     
     func execute(limit: Int,
+                 offset: Int,
                  completion: @escaping (Result<[Character], Error>) -> Void) {
-        charactersQueriesRepository.fetchCharactersList(limit: limit) { result in
+        charactersQueriesRepository.fetchCharactersList(limit: limit, offset: offset) { result in
             completion(result)
         }
     }

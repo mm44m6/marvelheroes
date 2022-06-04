@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 // MARK: - Character
-struct Character: Codable {
+struct Character: Codable, Equatable {
     let id: Int
     let name, description, modified, resourceURI: String
     let thumbnail: Thumbnail
@@ -17,20 +17,20 @@ struct Character: Codable {
 }
 
 // MARK: - Comics
-struct Comics: Codable {
+struct Comics: Codable, Equatable {
     let available: Int
     let collectionURI: String
     let items: [Item]
 }
 
 // MARK: - Item
-struct Item: Codable {
+struct Item: Codable, Equatable {
     let resourceURI: String
     let name: String
 }
 
 // MARK: - Thumbnail
-struct Thumbnail: Codable {
+struct Thumbnail: Codable, Equatable {
     let path: String
     let thumbnailExtension: String
     let imageVariant: ImageVariants?

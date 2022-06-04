@@ -8,21 +8,18 @@
 import Foundation
 import CryptoSwift
 
-extension Date {
-    static var currentTimeStamp: Int64{
-        return Int64(Date().timeIntervalSince1970 * 1000)
-    }
-}
-
 class CharactersQueriesRepository: CharactersQueries {
     public func fetchCharactersList(limit: Int,
+                                    offset: Int,
                                     completion: @escaping (Result<[Character], Error>) -> Void) {
+        
         let timestamp = Date.currentTimeStamp
         let publicKey = "da3e69b0df701145c835dfce4d351007"
         let privateKey = "dc603d1dd158c1d5d7781b31e11c243946a5312f"
         let md5 = "\(timestamp)\(privateKey)\(publicKey)".md5()
         
-        guard let url = URL(string: "https://gateway.marvel.com/v1/public/characters?ts=\(timestamp)&apikey=da3e69b0df701145c835dfce4d351007&hash=\(md5)&limit=\(limit)") else { return }
+        guard let url = URL(string: "https://gateway.marvel.com/v1/public/characters?ts=\(timestamp)&apikey=da3e69b0df701145c835dfce4d351007&hash=\(md5)&limit=\(limit)&offset=\(offset)") else { return }
+        
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"

@@ -20,6 +20,7 @@
 		E629C0FB28464A0B0004BA30 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E629C0FA28464A0B0004BA30 /* Coordinator.swift */; };
 		E629C0FD28464A9A0004BA30 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E629C0FC28464A9A0004BA30 /* AppCoordinator.swift */; };
 		E629C0FF28464B660004BA30 /* CharacterDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E629C0FE28464B660004BA30 /* CharacterDetailsViewController.swift */; };
+		E65D2336284A42610009578D /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65D2335284A42610009578D /* Date.swift */; };
 		E67F009C28443FA300C9E325 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67F009B28443FA300C9E325 /* Character.swift */; };
 		E67F009E2844436300C9E325 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67F009D2844436300C9E325 /* Endpoints.swift */; };
 		E67F00A02844555F00C9E325 /* FetchCharactersUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67F009F2844555F00C9E325 /* FetchCharactersUseCase.swift */; };
@@ -32,6 +33,7 @@
 		E6C82D9A2843E9CD000313D2 /* MarvelHeroesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C82D992843E9CD000313D2 /* MarvelHeroesTests.swift */; };
 		E6C82DA42843E9CD000313D2 /* MarvelHeroesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C82DA32843E9CD000313D2 /* MarvelHeroesUITests.swift */; };
 		E6C82DA62843E9CD000313D2 /* MarvelHeroesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C82DA52843E9CD000313D2 /* MarvelHeroesUITestsLaunchTests.swift */; };
+		E6DC32A8284AF25300945127 /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DC32A7284AF25300945127 /* SpinnerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,7 @@
 		E629C0FA28464A0B0004BA30 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		E629C0FC28464A9A0004BA30 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		E629C0FE28464B660004BA30 /* CharacterDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsViewController.swift; sourceTree = "<group>"; };
+		E65D2335284A42610009578D /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		E67F009B28443FA300C9E325 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		E67F009D2844436300C9E325 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		E67F009F2844555F00C9E325 /* FetchCharactersUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCharactersUseCase.swift; sourceTree = "<group>"; };
@@ -86,6 +89,7 @@
 		E6C82D9F2843E9CD000313D2 /* MarvelHeroesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarvelHeroesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6C82DA32843E9CD000313D2 /* MarvelHeroesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelHeroesUITests.swift; sourceTree = "<group>"; };
 		E6C82DA52843E9CD000313D2 /* MarvelHeroesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelHeroesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E6DC32A7284AF25300945127 /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
 		F389D2DF795763489E5FF26B /* Pods-MarvelHeroesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelHeroesUITests.debug.xcconfig"; path = "Target Support Files/Pods-MarvelHeroesUITests/Pods-MarvelHeroesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -143,6 +147,7 @@
 		E602D44828486FF70049E65D /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				E6DC32A5284AF22F00945127 /* Components */,
 				E602D44A284870040049E65D /* Utils */,
 				E602D44928486FFE0049E65D /* Extensions */,
 			);
@@ -152,6 +157,7 @@
 		E602D44928486FFE0049E65D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E65D2335284A42610009578D /* Date.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -364,6 +370,14 @@
 				E6C82DA52843E9CD000313D2 /* MarvelHeroesUITestsLaunchTests.swift */,
 			);
 			path = MarvelHeroesUITests;
+			sourceTree = "<group>";
+		};
+		E6DC32A5284AF22F00945127 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E6DC32A7284AF25300945127 /* SpinnerViewController.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -625,6 +639,7 @@
 				E629C0F52845BA8D0004BA30 /* CharacterListCell.swift in Sources */,
 				E6C82D872843E9CC000313D2 /* ViewController.swift in Sources */,
 				E629C0FB28464A0B0004BA30 /* Coordinator.swift in Sources */,
+				E6DC32A8284AF25300945127 /* SpinnerViewController.swift in Sources */,
 				E6C82D832843E9CC000313D2 /* AppDelegate.swift in Sources */,
 				E6C091082848F9F300053C35 /* CharacterDetailsViewModel.swift in Sources */,
 				E6C82D852843E9CC000313D2 /* SceneDelegate.swift in Sources */,
@@ -637,6 +652,7 @@
 				E629C0FF28464B660004BA30 /* CharacterDetailsViewController.swift in Sources */,
 				E629C0B12845AE4A0004BA30 /* CharactersListViewController.swift in Sources */,
 				E602D44228486B060049E65D /* ApiResponse.swift in Sources */,
+				E65D2336284A42610009578D /* Date.swift in Sources */,
 				E67F00A4284455F200C9E325 /* CharactersQueriesRepository.swift in Sources */,
 				E67F009E2844436300C9E325 /* Endpoints.swift in Sources */,
 			);
