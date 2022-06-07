@@ -10,16 +10,28 @@ import UIKit
 
 struct Theme {
     static var backgroundColor: UIColor?
-    static var buttonTextColor: UIColor?
     static var buttonBackgroundColor: UIColor?
     static var textColor: UIColor?
     static var textFont: UIFont?
 
+    // Text
+    static var defaultTextColor: UIColor? = .black
+    static var defaultTextFont: UIFont? = .systemFont(ofSize: FontSizes.medium.rawValue)
+
+    static var titleTextFont: UIFont? = .systemFont(ofSize: FontSizes.large.rawValue)
+
     public static func defaultTheme() {
         self.backgroundColor = UIColor.white
-        self.buttonTextColor = UIColor.red
         self.buttonBackgroundColor = UIColor.white
         self.textColor = UIColor.black
         self.textFont = .systemFont(ofSize: 40)
     }
+}
+
+enum FontSizes: CGFloat {
+    case extraSmall = 8
+    case small = 10
+    case medium = 16
+    case large = 20
+    case extraLarge = 26
 }

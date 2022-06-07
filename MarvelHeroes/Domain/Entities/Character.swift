@@ -11,8 +11,7 @@ import UIKit
 // MARK: - Character
 struct Character: Codable, Equatable {
     let id: Int
-    let name, modified, resourceURI: String
-    let description: String
+    let name, modified, resourceURI, description: String
     let thumbnail: Thumbnail
     let comics: Comics
 
@@ -34,14 +33,12 @@ struct Comics: Codable, Equatable {
 
 // MARK: - Item
 struct Item: Codable, Equatable {
-    let resourceURI: String
-    let name: String
+    let resourceURI, name: String
 }
 
 // MARK: - Thumbnail
 struct Thumbnail: Codable, Equatable {
-    let path: String
-    let thumbnailExtension: String
+    let path, thumbnailExtension: String
     let imageVariant: ImageVariants?
 
     enum CodingKeys: String, CodingKey {

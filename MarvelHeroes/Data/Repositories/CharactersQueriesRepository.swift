@@ -10,7 +10,7 @@ class CharactersQueriesRepository: CharactersQueriesRepositoryProtocol {
     typealias CompletionHandler = (AnyObject?) -> Void
     typealias CharacterResult = MarvelDataResponse<CharactersResultContainer>
 
-    let networkApiClient: NetworkApiClientProtocol
+    private let networkApiClient: NetworkApiClientProtocol
 
     init(networkApiClient: NetworkApiClientProtocol = NetworkApiClient<CharacterResult>()) {
         self.networkApiClient = networkApiClient

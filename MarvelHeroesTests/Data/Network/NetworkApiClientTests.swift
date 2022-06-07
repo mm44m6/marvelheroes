@@ -18,7 +18,7 @@ import FoundationNetworking
 
 class NetworkApiClientTests: XCTestCase {
     // MARK: Tests configs
-    var sut: NetworkApiClientProtocol?
+    private var sut: NetworkApiClientProtocol?
     private var timestamp: Int64?
     private var mockedData: Data?
     
@@ -28,7 +28,7 @@ class NetworkApiClientTests: XCTestCase {
             sessionManager: configureAlamofireMockedSession(),
             timestamp: timestamp!
         )
-        mockedData = MockedData.charactersList.data
+        mockedData = MockerData.charactersList.data
         super.setUp()
     }
     
@@ -38,6 +38,7 @@ class NetworkApiClientTests: XCTestCase {
         super.tearDown()
     }
     
+    //MARK: - func callApi tests
     func testWhenApiIsCalledAndUrlHasRightParametersShouldReturnData() {
         // GIVEN
         let expectation = self.expectation(description: "Data request should succeed")
@@ -177,19 +178,21 @@ class NetworkApiClientTests: XCTestCase {
         waitForExpectations(timeout: 10.0, handler: nil)
     }
     
+    // MARK: - Helper functions
+
     private func generateOriginalUrl(timestamp: Int64) -> URL? {
         return Api(
             base: "https://gateway.marvel.com/",
             version: "v1/",
             resource: "public/",
             endpoint: "characters",
-            queryParameters: ["limit": 10, "offset": 10],
             publicKey: "da3e69b0df701145c835dfce4d351007",
             privateKey: "dc603d1dd158c1d5d7781b31e11c243946a5312f",
+            queryParameters: ["limit": 10, "offset": 10],
             timestamp: timestamp
         ).url()
     }
-    
+
     private func generateUrlQueries(using url: URL, timestamp: Int64) -> String {
         let fullUrlString = url.absoluteString.components(separatedBy: "?")
         return fullUrlString[1]

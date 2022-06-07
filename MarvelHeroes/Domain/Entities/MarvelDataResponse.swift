@@ -9,7 +9,6 @@ import Foundation
 
 struct MarvelDataResponse<ResultContainer: Codable>: Codable {
     let code: Int
-    let status, copyright, attributionText, attributionHTML: String
-    let etag: String
+    let status, copyright, attributionText, attributionHTML, etag: String
     let data: ResultContainer
 }

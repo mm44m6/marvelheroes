@@ -8,7 +8,7 @@
 import Foundation
 
 enum ImageVariants: String, Codable {
-    // Portraits
+    // MARK: - Portraits
     case portraitSmall = "portrait_small"
     case portraitMedium = "portrait_medium"
     case portraitXlarge = "portrait_xlarge"
@@ -16,7 +16,7 @@ enum ImageVariants: String, Codable {
     case portraitUncanny = "portrait_uncanny"
     case portraitIncredible = "portrait_incredible"
 
-    // Standard
+    // MARK: - Standard
     case standardSmall = "standard_small"
     case standardMedium = "standard_medium"
     case standardLarge = "standard_large"
@@ -24,7 +24,7 @@ enum ImageVariants: String, Codable {
     case standardFantastic = "standard_fantastic"
     case standardAmazing = "standard_amazing"
 
-    // Landscape
+    // MARK: - Landscape
     case landscapeSmall = "landscape_small"
     case landscapeMedium = "landscape_medium"
     case landscapeLarge = "landscape_large"
@@ -32,7 +32,7 @@ enum ImageVariants: String, Codable {
     case landscapeAmazing = "landscape_amazing"
     case landscapeIncredible = "landscape_incredible"
 
-    // Description
+    // MARK: - Description
     var description: String {
         return self.rawValue
     }

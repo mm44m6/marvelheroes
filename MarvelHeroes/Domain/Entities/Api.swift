@@ -8,13 +8,8 @@ import CryptoKit
 import Foundation
 
 struct Api {
-    let base: String
-    let version: String
-    let resource: String
-    let endpoint: String
+    let base, version, resource, endpoint, publicKey, privateKey: String
     let queryParameters: [String: Any]?
-    let publicKey: String
-    let privateKey: String
     let timestamp: Int64
 
     func url() -> URL? {

@@ -10,14 +10,14 @@ import Alamofire
 
 @testable import MarvelHeroes
 
-typealias ResponseHandler = (ApiResponse) -> Void
-
 struct NetworkApiClientMock: NetworkApiClientProtocol {
+    typealias ResponseHandler = (ApiResponse) -> Void
+    
     var shouldReturnError: Bool = false
     var shouldReturnData: Bool = true
     var networkError: NetworkError? = nil
 
-    func callApi(requestType: HTTPMethod, queryParameters: [String : Any]?, completion: @escaping ResponseHandler) {
+    func callApi(requestType: HTTPMethod, queryParameters: [String : Any]?, completion: @escaping (ApiResponse) -> Void) {
         if shouldReturnError {
             completion(ApiResponse(success: false, error: networkError))
         } else {

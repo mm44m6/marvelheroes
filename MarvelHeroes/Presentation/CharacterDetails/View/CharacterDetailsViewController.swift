@@ -107,13 +107,13 @@ class CharacterDetailsViewController: UIViewController {
         containerView.addSubview(characterNameLabel)
 
         characterNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        characterDescriptionLabel.textAlignment = .center
 
+        characterDescriptionLabel.textAlignment = .center
         characterNameLabel.text = "\(character.name)"
         characterNameLabel.clipsToBounds = true
 
         characterNameLabel.numberOfLines = 1
-        characterNameLabel.font = .systemFont(ofSize: 32, weight: .heavy)
+        characterNameLabel.font = Theme.titleTextFont
         characterNameLabel.baselineAdjustment = .alignCenters
 
         let constraints = [
@@ -130,19 +130,16 @@ class CharacterDetailsViewController: UIViewController {
 
         characterDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
 
-        characterDescriptionLabel.font = .systemFont(ofSize: 18, weight: .light)
-
+        characterDescriptionLabel.font = Theme.defaultTextFont
         characterDescriptionLabel.textAlignment = .justified
-
         characterDescriptionLabel.isScrollEnabled = false
-
         characterDescriptionLabel.textContainerInset = UIEdgeInsets(top: 0, left: 20, bottom: 20, right: 20)
 
         let constraints = [
             characterDescriptionLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             characterDescriptionLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             characterDescriptionLabel.topAnchor.constraint(equalTo: characterNameLabel.bottomAnchor),
-            characterDescriptionLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            characterDescriptionLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
         ]
 
         NSLayoutConstraint.activate(constraints)

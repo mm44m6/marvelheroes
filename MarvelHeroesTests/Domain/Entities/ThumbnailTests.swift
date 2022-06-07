@@ -12,8 +12,8 @@ import XCTest
 @testable import MarvelHeroes
 
 class ThumbnailTests: XCTestCase {
+
     //MARK: - generateThumbnailUrl tests
-    
     func testWhenAllParametersAreProvidedShouldReturnThumbnailUrl() {
         // Given
         let sut = Thumbnail(path: "https://testpath.com.br",

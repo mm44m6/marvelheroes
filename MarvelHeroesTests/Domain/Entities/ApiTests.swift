@@ -9,9 +9,9 @@ import XCTest
 
 @testable import MarvelHeroes
 
-class EndpointTests: XCTestCase {
-    // MARK: -fullRequestUrl() tests
+class ApiTests: XCTestCase {
     
+    // MARK: -fullRequestUrl() tests
     func testWhenAllParametersAreProvidedShouldReturnFullRequestUrl() {
         // Given
         let sut = Api(
@@ -19,9 +19,9 @@ class EndpointTests: XCTestCase {
             version: "v1",
             resource: "/public",
             endpoint: "/characters",
-            queryParameters: ["limit": 10],
             publicKey: "testPublicKey123",
             privateKey: "testPrivateKey123",
+            queryParameters: ["limit": 10],
             timestamp: 1234
         )
         
@@ -41,9 +41,9 @@ class EndpointTests: XCTestCase {
             version: "v1",
             resource: "/public",
             endpoint: "/characters",
-            queryParameters: nil,
             publicKey: "testPublicKey123",
             privateKey: "testPrivateKey123",
+            queryParameters: nil,
             timestamp: 1234
         )
         

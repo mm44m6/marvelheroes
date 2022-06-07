@@ -8,9 +8,6 @@
 import Foundation
 
 struct CharactersResultContainer: Codable {
-    let offset: Int
-    let limit: Int
-    let total: Int
-    let count: Int
+    let offset, limit, total, count: Int
     let results: [Character]
 }

@@ -8,13 +8,13 @@
 import Alamofire
 import Foundation
 
-typealias ResponseHandler = (ApiResponse) -> Void
-
 protocol NetworkApiClientProtocol {
-    func callApi(requestType: HTTPMethod, queryParameters: [String: Any]?, completion: @escaping ResponseHandler)
+    func callApi(requestType: HTTPMethod, queryParameters: [String: Any]?, completion: @escaping (ApiResponse) -> Void)
 }
 
 class NetworkApiClient<ResponseType: Codable>: NetworkApiClientProtocol {
+    typealias ResponseHandler = (ApiResponse) -> Void
+
     private let sessionManager: Alamofire.Session
     private let timestamp: Int64
 
@@ -74,9 +74,9 @@ class NetworkApiClient<ResponseType: Codable>: NetworkApiClientProtocol {
             version: "v1/",
             resource: "public/",
             endpoint: "characters",
-            queryParameters: queryParameters,
             publicKey: publicKey,
             privateKey: privateKey,
+            queryParameters: queryParameters,
             timestamp: timestamp
         ).url()
 

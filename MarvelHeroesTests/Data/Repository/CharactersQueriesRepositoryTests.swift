@@ -16,20 +16,20 @@ import RxBlocking
 class CharactersQueriesRepositoryTests: XCTestCase {
     // MARK: Tests configs
     var sut: CharactersQueriesRepositoryProtocol?
-    var networkApiClientMock: NetworkApiClientMock?
-    
+    var networkApiClientMock: NetworkApiClientProtocol?
+
     override func setUp() {
         networkApiClientMock = NetworkApiClientMock()
         sut = CharactersQueriesRepository(networkApiClient: networkApiClientMock!)
         super.setUp()
     }
-    
+
     override func tearDown() {
         sut = nil
         networkApiClientMock = nil
         super.tearDown()
     }
-    
+
     //MARK: - fetchCharactersList tests
     func testWhenApiResponseIsSuccessAndResposeHasDataShouldReturnListOfCharacters() {
         //GIVEN
@@ -56,7 +56,7 @@ class CharactersQueriesRepositoryTests: XCTestCase {
     func testWhenApiResponseIsSuccessAndResposeDoesntHaveDataShouldReturnError() {
         //GIVEN
         let expectation = self.expectation(description: "Data request should fail")
-        let networkApiClientMock = NetworkApiClientMock(shouldReturnData: false)
+        let networkApiClientMock = NetworkApiClientMock(shouldReturnData: false) 
         let sut = CharactersQueriesRepository(networkApiClient: networkApiClientMock)
         let expectedError = NetworkError.noDataReturned
         
