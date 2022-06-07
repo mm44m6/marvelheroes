@@ -4,8 +4,6 @@ use_frameworks!
 platform :ios, '10.6'
 
 def testing_pods
-    pod 'Quick'
-    pod 'Nimble'
     pod 'RxCocoa', '6.5.0'
     pod 'RxBlocking', '6.5.0'
     pod 'RxTest', '6.5.0'

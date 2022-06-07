@@ -30,21 +30,15 @@ Also, for testing purposes only, the project is also using:
 `Swiftlint` is also configured in this project as a Pod.
 
 ## Setup
-To run this project, install the CocoaPods dependencies first, using:
+To run this project, use the command:
 
 ```
-pod install
+make install
 ```
 
-This project is integrated with `Fastlane`, so you can also use `make install` to install the dependencies.
-
-If `fastlane` is not installed, it's possible to use the local `Gemfile` to install it, using:
-
-```
-gem install
-```
+This project is integrated with `Fastlane`, so this command will install all dependencies listed in the local `Gemfile` and also perform a `pod install`. 
 
 ## Tests
 This project implements a comprehensive number of unit tests, written with `XCTest`. To mock `Alamofire`'s fetch and response, `Mocker` is being used. And to test components that are binded with `RxSwift` or `RxCocoa`, `RxTest` and `RxBlocking` is used. 
 
-In order to see coverage, use the command `make coverage`. This command will use `slather` to produce test coverage percentage visually. 
+In order to see coverage, use the command `make coverage_report`. This command will use `slather` to produce test coverage percentage visually. `scan` command on `Fastfile` is using `iPhone 8, OS: 15.4`, make sure you have this simulator in your xcode, if not change `Fastfile` accordingly. 
