@@ -1,0 +1,24 @@
+default_platform(:ios)
+
+platform :ios do
+  desc "Run all unit tests"
+  lane :test do
+    scan(
+      workspace: "MarvelHeroes.xcworkspace",
+      destination: "platform=iOS Simulator,name=iPhone 8,OS=15.4",
+      skip_detect_devices: true,
+      scheme: "MarvelHeroes"
+    )
+  end
+
+  desc "Install cocoapods dependencies"
+  lane :pod_install do
+    cocoapods(repo_update: true, clean_install: true, use_bundle_exec: true)
+  end
+
+  # Generate coverage hmtl report
+  lane :generate_slather_report do
+    slather(html: true, output_directory: "fastlane/test_output", proj: "MarvelHeroes.xcodeproj", scheme: "MarvelHeroes", workspace: "MarvelHeroes.xcworkspace")
+  end
+
+end
