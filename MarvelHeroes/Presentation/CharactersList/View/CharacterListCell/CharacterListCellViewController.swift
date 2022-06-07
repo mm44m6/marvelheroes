@@ -79,6 +79,8 @@ class CharacterListCellViewController: UITableViewCell {
 
         characterNameLabel.lineBreakMode = .byWordWrapping
         characterNameLabel.numberOfLines = 0
+        characterNameLabel.font = .systemFont(ofSize: 20, weight: .semibold)
+        characterNameLabel.textAlignment = .center
 
         let constraints = [
             characterNameLabelContainerView.topAnchor.constraint(equalTo: characterNameLabel.topAnchor),

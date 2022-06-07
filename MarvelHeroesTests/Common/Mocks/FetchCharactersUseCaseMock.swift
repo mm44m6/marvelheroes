@@ -13,7 +13,7 @@ class FetchCharactersUseCaseMock: FetchCharactersUseCaseProtocol {
     private var shouldFail: Bool = false
     private var shouldComplete: Bool = false
     
-    func execute(limit: Int, offset: Int, completion: @escaping (Result<[Character], Error>) -> Void) {
+    func execute(limit: Int, offset: Int, completion: @escaping (Result<[Character], NetworkError>) -> Void) {
         if shouldFail {
             didExecuteFunction = false
         }

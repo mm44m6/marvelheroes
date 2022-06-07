@@ -7,8 +7,8 @@
 
 import Foundation
 
-protocol CharactersQueries {
+protocol CharactersQueriesRepositoryProtocol {
     func fetchCharactersList(limit: Int,
                              offset: Int,
-                             completion: @escaping (Result<[Character], Error>) -> Void)
+                             completion: @escaping (Result<[Character], NetworkError>) -> Void)
 }

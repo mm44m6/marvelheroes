@@ -11,19 +11,19 @@ import RxSwift
 protocol FetchCharactersUseCaseProtocol {
     func execute(limit: Int,
                  offset: Int,
-                 completion: @escaping (Result<[Character], Error>) -> Void)
+                 completion: @escaping (Result<[Character], NetworkError>) -> Void)
 }
 
 class FetchCharactersUseCase: FetchCharactersUseCaseProtocol {
-    private let charactersQueriesRepository: CharactersQueries
+    private let charactersQueriesRepository: CharactersQueriesRepositoryProtocol
 
-    init(charactersQueriesRepository: CharactersQueries = CharactersQueriesRepository()) {
+    init(charactersQueriesRepository: CharactersQueriesRepositoryProtocol = CharactersQueriesRepository()) {
         self.charactersQueriesRepository = charactersQueriesRepository
     }
 
     func execute(limit: Int,
                  offset: Int,
-                 completion: @escaping (Result<[Character], Error>) -> Void) {
+                 completion: @escaping (Result<[Character], NetworkError>) -> Void) {
         charactersQueriesRepository.fetchCharactersList(limit: limit, offset: offset) { result in
             completion(result)
         }

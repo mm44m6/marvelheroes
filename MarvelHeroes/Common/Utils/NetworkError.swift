@@ -13,4 +13,5 @@ enum NetworkError: Error {
     case unableToDecodeData
     case missingUrlParameters
     case unkownNetworkError
+    case noDataReturned
 }

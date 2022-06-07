@@ -40,7 +40,7 @@ class CharactersListViewModel: CharactersListViewModelProtocol {
     let title: String
 
     // MARK: - Init
-    init(title: String = "Marvel Heroes",
+    init(title: String = String(localized: "characters_list_title"),
          fetchCharactersUseCase: FetchCharactersUseCaseProtocol = FetchCharactersUseCase(),
          offset: Int = 0) {
         self.title = title

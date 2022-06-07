@@ -6,10 +6,10 @@
 //
 import Foundation
 
-typealias CompletionHandler = (AnyObject?) -> Void
-typealias CharacterResult = MarvelDataResponse<CharactersResultContainer>
+class CharactersQueriesRepository: CharactersQueriesRepositoryProtocol {
+    typealias CompletionHandler = (AnyObject?) -> Void
+    typealias CharacterResult = MarvelDataResponse<CharactersResultContainer>
 
-class CharactersQueriesRepository: CharactersQueries {
     let networkApiClient: NetworkApiClientProtocol
 
     init(networkApiClient: NetworkApiClientProtocol = NetworkApiClient<CharacterResult>()) {
@@ -18,22 +18,23 @@ class CharactersQueriesRepository: CharactersQueries {
 
     func fetchCharactersList(limit: Int,
                              offset: Int,
-                             completion: @escaping (Result<[Character], Error>) -> Void) {
+                             completion: @escaping (Result<[Character], NetworkError>) -> Void) {
         networkApiClient.callApi(requestType: .get,
                                  queryParameters: ["limit": limit, "offset": offset]) { apiResponse in
             if apiResponse.success {
                 guard let characterList = apiResponse.data as? CharacterResult else {
+                    completion(.failure(NetworkError.noDataReturned))
                     return
                 }
 
                 completion(.success(characterList.data.results))
             } else {
-                guard let error = apiResponse.error else {
-                    completion(.failure(NetworkError.unkownNetworkError))
+                if let networkError = apiResponse.error {
+                    completion(.failure(networkError))
                     return
                 }
 
-                completion(.failure(error))
+                completion(.failure(NetworkError.unkownNetworkError))
             }
         }
     }

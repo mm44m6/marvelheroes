@@ -58,7 +58,7 @@ class CharactersListViewController: UIViewController {
 
     private func setupSearchBarView() {
         searchBar.searchBarStyle = UISearchBar.Style.default
-        searchBar.placeholder = "Search character"
+        searchBar.placeholder = String(localized: "search_characters_placeholder")
         searchBar.sizeToFit()
         searchBar.isTranslucent = false
         searchBar.backgroundImage = UIImage()

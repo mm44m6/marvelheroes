@@ -24,7 +24,7 @@ class NetworkApiClientTests: XCTestCase {
     
     override func setUp() {
         timestamp = Date.currentTimeStamp
-        sut = NetworkApiClient<CharacterResult>(
+        sut = NetworkApiClient<MarvelDataResponse<CharactersResultContainer>>(
             sessionManager: configureAlamofireMockedSession(),
             timestamp: timestamp!
         )

@@ -1,0 +1,12 @@
+/* 
+  es.strings
+  MarvelHeroes
+
+  Created by Maria Luiza Fornagieri on 07/06/22.
+  
+*/
+
+"characters_empty_description_text" = "Este personaje no tiene descripción";
+"search_characters_placeholder" = "Buscar";
+"back_button_label" = "Regresar";
+"characters_list_title" = "Héroes Marvel";
