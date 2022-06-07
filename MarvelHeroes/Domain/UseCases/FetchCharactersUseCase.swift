@@ -16,11 +16,11 @@ protocol FetchCharactersUseCaseProtocol {
 
 class FetchCharactersUseCase: FetchCharactersUseCaseProtocol {
     private let charactersQueriesRepository: CharactersQueries
-    
+
     init(charactersQueriesRepository: CharactersQueries = CharactersQueriesRepository()) {
         self.charactersQueriesRepository = charactersQueriesRepository
     }
-    
+
     func execute(limit: Int,
                  offset: Int,
                  completion: @escaping (Result<[Character], Error>) -> Void) {

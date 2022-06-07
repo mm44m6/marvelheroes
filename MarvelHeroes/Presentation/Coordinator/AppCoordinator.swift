@@ -7,27 +7,27 @@
 
 import UIKit
 
-final class AppCoordinator: Coordinator {    
+final class AppCoordinator: Coordinator {
     private let navigationController: UINavigationController
-    
+
     private var childViewControllers: [UIViewController]
-    
+
     init(navigationController: UINavigationController,
          childViewControllers: [UIViewController] = []) {
         self.navigationController = navigationController
         self.childViewControllers = childViewControllers
     }
-    
+
     func start() {
         showCharactersList()
     }
-    
+
     private func showCharactersList() {
         let viewController = CharactersListViewController()
         viewController.delegate = self
         self.navigationController.viewControllers = [viewController]
     }
-    
+
     private func showCharacterDetails(with character: Character) {
         let viewController = CharacterDetailsViewController()
         viewController.delegate = self
@@ -41,7 +41,7 @@ extension AppCoordinator: CharactersListViewControllerDelegate, CharacterDetails
     func navigateToCharactersList() {
         showCharactersList()
     }
-    
+
     func navigateToCharacterDetails(with character: Character) {
         showCharacterDetails(with: character)
     }

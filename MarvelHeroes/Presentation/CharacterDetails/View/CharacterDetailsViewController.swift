@@ -16,101 +16,113 @@ class CharacterDetailsViewController: UIViewController {
     var delegate: CharacterDetailsViewControllerDelegate?
     var character: Character!
     private var viewModel: CharacterDetailsViewModelProtocol?
-    
-    let scrollView = UIScrollView()
-    let contentView = UIView()
-    let uiImageView = UIImageView()
-    
+
+    private let scrollView = UIScrollView()
+    private let contentView = UIView()
+    private let characterImageHeader = UIImageView()
+    private let characterNameLabel = UILabel()
+    private let characterDescriptionLabel = UILabel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = CharacterDetailsViewModel()
         setupView()
-        setupScrollView()
-        setupViews()
-        headerImage.image = createImage()
     }
-    
-    func setupScrollView() {
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(scrollView)
-        scrollView.addSubview(contentView)
-        
-        scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        scrollView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-        scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        
-        contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
-        contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
-        contentView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
-        contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+
+    override func viewDidAppear(_ animated: Bool) {
+       super.viewDidAppear(animated)
+       scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height + 500)
     }
-    
-    func setupViews() {
-        contentView.addSubview(headerImage)
-        headerImage.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        headerImage.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        headerImage.heightAnchor.constraint(equalToConstant: 350).isActive = true
-        headerImage.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
-        
-        contentView.addSubview(titleLabel)
-        titleLabel.text = "\(character.name) "
-        titleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        titleLabel.topAnchor.constraint(equalTo: headerImage.bottomAnchor, constant: 5).isActive = true
-        titleLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 4/5).isActive = true
-        
-        contentView.addSubview(descriptionLabel)
-        descriptionLabel.text = "\(character.description)"
-        descriptionLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5).isActive = true
-        descriptionLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 4/5).isActive = true
-    }
-    
-    let headerImage: UIImageView = {
-        let image = UIImageView()
-        image.contentMode = .scaleAspectFill
-        image.clipsToBounds = true
-        image.translatesAutoresizingMaskIntoConstraints = false
-        return image
-    }()
-    
-    let titleLabel: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 0
-        label.font = .systemFont(ofSize: 32, weight: .heavy)
-        label.sizeToFit()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    let descriptionLabel: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 0
-        label.font = .systemFont(ofSize: 18, weight: .light)
-        label.sizeToFit()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
+
     private func setupView() {
         view.backgroundColor = .white
+
+        setupScrollView()
+        setupCharacterHeaderImageView()
+        setupCharacterNameLabelView()
+        setupCharacterDescriptionLabelView()
     }
-    
-    func createImage() -> UIImage? {
-        var image: UIImage?
-        let urlString = "\(character.thumbnail.path)/portrait_uncanny.\(character.thumbnail.thumbnailExtension)"
-        
-        guard let url = URL(string: urlString) else { return nil }
-        
-        do {
-            let data = try Data(contentsOf: url)
-            image = UIImage(data: data)
-            
-        } catch {
-            print(error)
+
+    private func setupScrollView() {
+        view.addSubview(scrollView)
+
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+
+        let constraints = [
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            scrollView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            scrollView.heightAnchor.constraint(equalTo: view.heightAnchor)
+        ]
+
+        NSLayoutConstraint.activate(constraints)
+    }
+
+    private func setupCharacterHeaderImageView() {
+        guard let imageData = viewModel?.createImageData(character: character) else {
+            return
         }
-        
-        return image
+
+        scrollView.addSubview(characterImageHeader)
+
+        characterImageHeader.translatesAutoresizingMaskIntoConstraints = false
+
+        characterImageHeader.image = UIImage(data: imageData)
+
+        characterImageHeader.contentMode = .scaleAspectFill
+        characterImageHeader.clipsToBounds = true
+
+        let constraints = [
+            characterImageHeader.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            characterImageHeader.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            characterImageHeader.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            characterImageHeader.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            characterImageHeader.heightAnchor.constraint(equalTo: scrollView.heightAnchor, multiplier: 0.5)
+        ]
+
+        NSLayoutConstraint.activate(constraints)
+    }
+
+    private func setupCharacterNameLabelView() {
+        scrollView.addSubview(characterNameLabel)
+
+        characterNameLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        characterNameLabel.text = "\(character.name)"
+
+        characterNameLabel.numberOfLines = 0
+        characterNameLabel.font = .systemFont(ofSize: 32, weight: .heavy)
+        characterNameLabel.sizeToFit()
+
+        let constraints = [
+            characterNameLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            characterNameLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            characterNameLabel.topAnchor.constraint(equalTo: characterImageHeader.bottomAnchor),
+            characterNameLabel.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
+        ]
+
+        NSLayoutConstraint.activate(constraints)
+    }
+
+    private func setupCharacterDescriptionLabelView() {
+        scrollView.addSubview(characterDescriptionLabel)
+
+        characterDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        characterDescriptionLabel.text = "\(character.getDescription)"
+
+        characterDescriptionLabel.numberOfLines = 0
+        characterDescriptionLabel.font = .systemFont(ofSize: 18, weight: .light)
+
+        let constraints = [
+            characterDescriptionLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            characterDescriptionLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            characterDescriptionLabel.topAnchor.constraint(equalTo: characterNameLabel.bottomAnchor),
+            characterDescriptionLabel.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
+        ]
+
+        NSLayoutConstraint.activate(constraints)
     }
 }

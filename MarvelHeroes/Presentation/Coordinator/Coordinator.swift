@@ -11,6 +11,5 @@ import UIKit
 protocol Coordinator {
     init(navigationController: UINavigationController,
          childViewControllers: [UIViewController])
-    
     func start()
 }

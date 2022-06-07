@@ -1,5 +1,7 @@
 PODS:
-  - CryptoSwift (1.5.1)
+  - Alamofire (5.6.1)
+  - Kingfisher (6.3.1)
+  - Mocker (2.5.5)
   - Nimble (10.0.0)
   - Quick (5.0.1)
   - RxBlocking (6.5.0):
@@ -12,19 +14,25 @@ PODS:
   - RxSwift (6.5.0)
   - RxTest (6.5.0):
     - RxSwift (= 6.5.0)
+  - SwiftLint (0.47.1)
 
 DEPENDENCIES:
-  - CryptoSwift
+  - Alamofire (= 5.6.1)
+  - Kingfisher (= 6.3.1)
+  - Mocker (= 2.5.5)
   - Nimble
   - Quick
   - RxBlocking (= 6.5.0)
   - RxCocoa (= 6.5.0)
   - RxSwift (= 6.5.0)
   - RxTest (= 6.5.0)
+  - SwiftLint
 
 SPEC REPOS:
   trunk:
-    - CryptoSwift
+    - Alamofire
+    - Kingfisher
+    - Mocker
     - Nimble
     - Quick
     - RxBlocking
@@ -32,9 +40,12 @@ SPEC REPOS:
     - RxRelay
     - RxSwift
     - RxTest
+    - SwiftLint
 
 SPEC CHECKSUMS:
-  CryptoSwift: c4f2debceb38bf44c80659afe009f71e23e4a082
+  Alamofire: 87bd8c952f9a4454320fce00d9cc3de57bcadaf5
+  Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
+  Mocker: 8c731a8104962f246cadf2b02556218e9edc1390
   Nimble: 5316ef81a170ce87baf72dd961f22f89a602ff84
   Quick: 749aa754fd1e7d984f2000fe051e18a3a9809179
   RxBlocking: 04b5fd28bb5ea49f7d64b80db8bbfe50d9cc1c7d
@@ -42,7 +53,8 @@ SPEC CHECKSUMS:
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   RxTest: eb2d23adefc5a5ebf5779c7792fa3edfe6ebcc17
+  SwiftLint: f80f1be7fa96d30e0aa68e58d45d4ea1ccaac519
 
-PODFILE CHECKSUM: 30f3d03794e3f6482475945eee7ec3a635f9aa0d
+PODFILE CHECKSUM: 3eafb7197e7bb7e4b349fd689b35a22ceb73ae32
 
 COCOAPODS: 1.11.3
