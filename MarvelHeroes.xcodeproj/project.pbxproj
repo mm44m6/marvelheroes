@@ -28,6 +28,8 @@
 		E6B9B392284F8D3F00CA502E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E6B9B394284F8D3F00CA502E /* Localizable.strings */; };
 		E6B9B396284FBEF300CA502E /* CharactersQueriesRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B9B395284FBEF300CA502E /* CharactersQueriesRepositoryTests.swift */; };
 		E6B9B39A284FBF8C00CA502E /* NetworkApiClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B9B399284FBF8C00CA502E /* NetworkApiClientMock.swift */; };
+		E6B9B3A2285037A600CA502E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6B9B3A1285037A600CA502E /* LaunchScreen.storyboard */; };
+		E6B9B3E02850388D00CA502E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6B9B3DF2850388D00CA502E /* Assets.xcassets */; };
 		E6C091082848F9F300053C35 /* CharacterDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C091072848F9F300053C35 /* CharacterDetailsViewModel.swift */; };
 		E6C82D832843E9CC000313D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C82D822843E9CC000313D2 /* AppDelegate.swift */; };
 		E6C82D852843E9CC000313D2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C82D842843E9CC000313D2 /* SceneDelegate.swift */; };
@@ -99,6 +101,8 @@
 		E6B9B393284F8D3F00CA502E /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E6B9B395284FBEF300CA502E /* CharactersQueriesRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersQueriesRepositoryTests.swift; sourceTree = "<group>"; };
 		E6B9B399284FBF8C00CA502E /* NetworkApiClientMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkApiClientMock.swift; sourceTree = "<group>"; };
+		E6B9B3A1285037A600CA502E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E6B9B3DF2850388D00CA502E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../eee/eee/Assets.xcassets; sourceTree = "<group>"; };
 		E6C091072848F9F300053C35 /* CharacterDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsViewModel.swift; sourceTree = "<group>"; };
 		E6C82D7F2843E9CC000313D2 /* MarvelHeroes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelHeroes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6C82D822843E9CC000313D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -371,6 +375,8 @@
 		E6B9B389284F8CA900CA502E /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				E6B9B3DF2850388D00CA502E /* Assets.xcassets */,
+				E6B9B3A1285037A600CA502E /* LaunchScreen.storyboard */,
 				E6B9B38A284F8CD700CA502E /* Localizable */,
 				E6C82D822843E9CC000313D2 /* AppDelegate.swift */,
 				E6C82D842843E9CC000313D2 /* SceneDelegate.swift */,
@@ -692,7 +698,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6B9B392284F8D3F00CA502E /* Localizable.strings in Resources */,
+				E6B9B3A2285037A600CA502E /* LaunchScreen.storyboard in Resources */,
 				E6B9B38D284F8D2A00CA502E /* Localizable.strings in Resources */,
+				E6B9B3E02850388D00CA502E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

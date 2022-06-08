@@ -48,6 +48,7 @@ class CharactersListViewController: UIViewController {
 
     private func setupTableView() {
         view.addSubview(tableView)
+
         tableView.register(CharacterListCellViewController.self, forCellReuseIdentifier: "cell")
 
         tableView.translatesAutoresizingMaskIntoConstraints = false
