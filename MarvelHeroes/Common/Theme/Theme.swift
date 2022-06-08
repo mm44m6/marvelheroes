@@ -9,23 +9,14 @@ import Foundation
 import UIKit
 
 struct Theme {
-    static var backgroundColor: UIColor?
-    static var buttonBackgroundColor: UIColor?
-    static var textColor: UIColor?
-    static var textFont: UIFont?
+    static var backgroundColor: UIColor = .white
+    static var cellBorderColor: UIColor = .gray
 
     // Text
     static var defaultTextColor: UIColor? = .black
     static var defaultTextFont: UIFont? = .systemFont(ofSize: FontSizes.medium.rawValue)
 
     static var titleTextFont: UIFont? = .systemFont(ofSize: FontSizes.large.rawValue)
-
-    public static func defaultTheme() {
-        self.backgroundColor = UIColor.white
-        self.buttonBackgroundColor = UIColor.white
-        self.textColor = UIColor.black
-        self.textFont = .systemFont(ofSize: 40)
-    }
 }
 
 enum FontSizes: CGFloat {

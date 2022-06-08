@@ -17,7 +17,6 @@ protocol CharactersListViewModelProtocol {
     func filterSearchQuery(query: String, characters: [Character]) -> [Character?]
     func handleInfiniteScroll(currentRow: Int)
     func viewDidLoad()
-    var title: String { get }
     var searchError: BehaviorRelay<SearchError?> { get }
     var characters: BehaviorRelay<[Character]> { get }
     var isFullScreenLoading: BehaviorRelay<Bool> { get }
@@ -33,12 +32,9 @@ class CharactersListViewModel: CharactersListViewModelProtocol {
     let isFooterLoading: BehaviorRelay<Bool> = BehaviorRelay(value: false)
     let characters: BehaviorRelay<[Character]> = BehaviorRelay(value: [])
     let searchError: BehaviorRelay<SearchError?> = BehaviorRelay(value: nil)
-    let title: String
 
-    init(title: String = String(localized: "characters_list_title"),
-         fetchCharactersUseCase: FetchCharactersUseCaseProtocol = FetchCharactersUseCase(),
+    init(fetchCharactersUseCase: FetchCharactersUseCaseProtocol = FetchCharactersUseCase(),
          offset: Int = 0) {
-        self.title = title
         self.fetchCharactersUseCase = fetchCharactersUseCase
         self.offset = offset
     }

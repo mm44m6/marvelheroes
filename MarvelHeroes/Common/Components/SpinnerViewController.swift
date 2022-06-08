@@ -13,7 +13,7 @@ class SpinnerViewController: UIViewController {
 
     override func loadView() {
         view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = Theme.backgroundColor
 
         spinner.translatesAutoresizingMaskIntoConstraints = false
         spinner.startAnimating()
@@ -23,7 +23,7 @@ class SpinnerViewController: UIViewController {
             spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ]
-        
+
         NSLayoutConstraint.activate(constraints)
     }
 }

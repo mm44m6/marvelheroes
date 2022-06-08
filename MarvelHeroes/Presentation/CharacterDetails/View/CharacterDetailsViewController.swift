@@ -49,7 +49,7 @@ class CharacterDetailsViewController: UIViewController {
     }
 
     private func setupView() {
-        view.backgroundColor = .white
+        view.backgroundColor = Theme.backgroundColor
         title = character.name
 
         setupScrollView()

@@ -38,8 +38,7 @@ class CharactersListViewController: UIViewController {
     }
 
     private func setupView() {
-        view.backgroundColor = .white
-        title = viewModel?.title
+        view.backgroundColor = Theme.backgroundColor
         setupTableView()
         populateTableView()
         setupSearchBarView()
@@ -88,7 +87,7 @@ class CharactersListViewController: UIViewController {
             cell.textLabel?.numberOfLines = 0
             cell.selectionStyle = .none
             cell.contentView.layer.cornerRadius = 10.0
-            cell.contentView.layer.borderColor = UIColor.gray.cgColor.copy(alpha: 0.5)
+            cell.contentView.layer.borderColor = Theme.cellBorderColor.cgColor.copy(alpha: 0.5)
             cell.contentView.layer.borderWidth = 1.0
 
             cell.characterNameLabel.text = character.name
