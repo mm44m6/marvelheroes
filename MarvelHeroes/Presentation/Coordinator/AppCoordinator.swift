@@ -23,15 +23,19 @@ final class AppCoordinator: Coordinator {
     }
 
     private func showCharactersList() {
-        let viewController = CharactersListViewController()
+        let viewModel = CharactersListViewModel()
+        let viewController = CharactersListViewController(viewModel: viewModel)
+
         viewController.delegate = self
         self.navigationController.viewControllers = [viewController]
     }
 
     private func showCharacterDetails(with character: Character) {
-        let viewController = CharacterDetailsViewController()
+        let viewModel = CharacterDetailsViewModel()
+        let viewController = CharacterDetailsViewController(viewModel: viewModel)
         viewController.delegate = self
-        viewController.character = character
+        viewModel.character.accept(character)
+
         self.childViewControllers.append(viewController)
         navigationController.pushViewController(viewController, animated: true)
     }

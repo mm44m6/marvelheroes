@@ -301,7 +301,6 @@
 		E67F009328443E8900C9E325 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				E6DC32D5284DB34000945127 /* CharacterListCell */,
 				E629C0F72845BF3F0004BA30 /* CharactersListViewModel.swift */,
 			);
 			path = ViewModel;
@@ -554,13 +553,6 @@
 				E6DC32D3284DAC1800945127 /* Theme.swift */,
 			);
 			path = Theme;
-			sourceTree = "<group>";
-		};
-		E6DC32D5284DB34000945127 /* CharacterListCell */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CharacterListCell;
 			sourceTree = "<group>";
 		};
 		E6DC32DB284EE24400945127 /* CharacterDetails */ = {

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RxSwift
 import UIKit
 
 protocol CharacterDetailsViewControllerDelegate: AnyObject {
@@ -15,33 +16,45 @@ protocol CharacterDetailsViewControllerDelegate: AnyObject {
 class CharacterDetailsViewController: UIViewController {
     var delegate: CharacterDetailsViewControllerDelegate?
     var character: Character!
-    private var viewModel: CharacterDetailsViewModelProtocol?
 
+    private var viewModel: CharacterDetailsViewModelProtocol!
+    private let disposeBag = DisposeBag()
     private let scrollView = UIScrollView()
     private let characterImageHeader = UIImageView()
-    private let characterNameLabel = UILabel()
     private let characterDescriptionLabel = UITextView()
     private let containerView = UIView()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        viewModel = CharacterDetailsViewModel()
-        setupView()
+    init(viewModel: CharacterDetailsViewModelProtocol) {
+        self.viewModel = viewModel
+
+        super.init(nibName: nil, bundle: nil)
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-       super.viewDidAppear(animated)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
-        characterDescriptionLabel.text = "\(character.getDescription)"
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        bind()
+    }
+
+    func bind() {
+        viewModel.character.bind { character in
+            guard let character = character else { return }
+
+            self.character = character
+            self.setupView()
+        }.disposed(by: disposeBag)
     }
 
     private func setupView() {
         view.backgroundColor = .white
+        title = character.name
 
         setupScrollView()
         setupContainerView()
         setupCharacterHeaderImageView()
-        setupCharacterNameLabelView()
         setupCharacterDescriptionLabelView()
     }
 
@@ -103,42 +116,22 @@ class CharacterDetailsViewController: UIViewController {
         NSLayoutConstraint.activate(constraints)
     }
 
-    private func setupCharacterNameLabelView() {
-        containerView.addSubview(characterNameLabel)
-
-        characterNameLabel.translatesAutoresizingMaskIntoConstraints = false
-
-        characterDescriptionLabel.textAlignment = .center
-        characterNameLabel.text = "\(character.name)"
-        characterNameLabel.clipsToBounds = true
-
-        characterNameLabel.numberOfLines = 1
-        characterNameLabel.font = Theme.titleTextFont
-        characterNameLabel.baselineAdjustment = .alignCenters
-
-        let constraints = [
-            characterNameLabel.topAnchor.constraint(equalTo: characterImageHeader.bottomAnchor),
-            characterNameLabel.widthAnchor.constraint(equalTo: characterNameLabel.widthAnchor),
-            characterNameLabel.heightAnchor.constraint(equalTo: characterNameLabel.heightAnchor)
-        ]
-
-        NSLayoutConstraint.activate(constraints)
-    }
-
     private func setupCharacterDescriptionLabelView() {
         scrollView.addSubview(characterDescriptionLabel)
 
         characterDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
 
+        characterDescriptionLabel.text = "\(character.getDescription)"
+
         characterDescriptionLabel.font = Theme.defaultTextFont
-        characterDescriptionLabel.textAlignment = .justified
+        characterDescriptionLabel.textAlignment = .center
         characterDescriptionLabel.isScrollEnabled = false
-        characterDescriptionLabel.textContainerInset = UIEdgeInsets(top: 0, left: 20, bottom: 20, right: 20)
+        characterDescriptionLabel.textContainerInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
 
         let constraints = [
             characterDescriptionLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             characterDescriptionLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-            characterDescriptionLabel.topAnchor.constraint(equalTo: characterNameLabel.bottomAnchor),
+            characterDescriptionLabel.topAnchor.constraint(equalTo: characterImageHeader.bottomAnchor),
             characterDescriptionLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
         ]
 

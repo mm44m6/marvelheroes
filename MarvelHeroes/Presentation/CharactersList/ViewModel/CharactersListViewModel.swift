@@ -9,12 +9,10 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-// MARK: - Error handling enums
 enum SearchError: Error {
     case notFound
 }
 
-// MARK: - Class protocol
 protocol CharactersListViewModelProtocol {
     func filterSearchQuery(query: String, characters: [Character]) -> [Character?]
     func handleInfiniteScroll(currentRow: Int)
@@ -26,9 +24,7 @@ protocol CharactersListViewModelProtocol {
     var isFooterLoading: BehaviorRelay<Bool> { get }
 }
 
-// MARK: - Class implementation
 class CharactersListViewModel: CharactersListViewModelProtocol {
-    // MARK: - Properties
     private let disposeBag = DisposeBag()
     private let fetchCharactersUseCase: FetchCharactersUseCaseProtocol
     private var offset: Int
@@ -39,7 +35,6 @@ class CharactersListViewModel: CharactersListViewModelProtocol {
     let searchError: BehaviorRelay<SearchError?> = BehaviorRelay(value: nil)
     let title: String
 
-    // MARK: - Init
     init(title: String = String(localized: "characters_list_title"),
          fetchCharactersUseCase: FetchCharactersUseCaseProtocol = FetchCharactersUseCase(),
          offset: Int = 0) {
@@ -48,7 +43,6 @@ class CharactersListViewModel: CharactersListViewModelProtocol {
         self.offset = offset
     }
 
-    // MARK: Methods binded to view controller
     public func viewDidLoad() {
         isFullScreenLoading.accept(true)
         loadCharacterList(limit: 30)

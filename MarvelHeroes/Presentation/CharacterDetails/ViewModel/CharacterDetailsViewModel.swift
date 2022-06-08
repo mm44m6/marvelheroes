@@ -6,12 +6,17 @@
 //
 
 import Foundation
+import RxCocoa
+import RxSwift
 
 protocol CharacterDetailsViewModelProtocol {
     func createImageData(character: Character) -> Data?
+    var character: BehaviorRelay<Character?> { get }
 }
 
 class CharacterDetailsViewModel: CharacterDetailsViewModelProtocol {
+    let character: BehaviorRelay<Character?> = BehaviorRelay(value: nil)
+
     func createImageData(character: Character) -> Data? {
         guard let imageUrl = character.thumbnail.generateThumbnailUrl(imageVariant: .landscapeXlarge)  else { return nil }
 

@@ -31,6 +31,10 @@ class CharacterListCellViewController: UITableViewCell {
         setupView()
     }
 
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     func setupView() {
         setupContentView()
         setupCharacterStackView()
@@ -112,10 +116,6 @@ class CharacterListCellViewController: UITableViewCell {
         ]
 
         NSLayoutConstraint.activate(constraints)
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

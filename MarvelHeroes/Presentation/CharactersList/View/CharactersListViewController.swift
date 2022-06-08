@@ -21,9 +21,18 @@ class CharactersListViewController: UIViewController {
     private let tableView = UITableView()
     private let searchBar = UISearchBar()
 
+    init(viewModel: CharactersListViewModelProtocol) {
+        self.viewModel = viewModel
+
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = CharactersListViewModel()
         viewModel.viewDidLoad()
         setupView()
     }
@@ -90,7 +99,6 @@ class CharactersListViewController: UIViewController {
 
             self.viewModel.handleInfiniteScroll(currentRow: currentRow)
             createFooterSpinnerView()
-
             return cell
         }.disposed(by: disposeBag)
 
