@@ -50,7 +50,6 @@
 		E6DC32D1284D9BE500945127 /* ThumbnailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DC32D0284D9BE500945127 /* ThumbnailTests.swift */; };
 		E6DC32D4284DAC1800945127 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DC32D3284DAC1800945127 /* Theme.swift */; };
 		E6DC32DA284E4B1C00945127 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DC32D9284E4B1C00945127 /* UIImageView.swift */; };
-		E6DC32DE284EE25E00945127 /* CharacterDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DC32DD284EE25E00945127 /* CharacterDetailsViewModelTests.swift */; };
 		E6DC32E0284EEBA200945127 /* NetworkApiClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DC32DF284EEBA200945127 /* NetworkApiClientTests.swift */; };
 		E6DC32E2284EEBB700945127 /* MockerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DC32E1284EEBB700945127 /* MockerData.swift */; };
 		E6DC32E5284EECA300945127 /* character_list.json in Resources */ = {isa = PBXBuildFile; fileRef = E6DC32E4284EECA300945127 /* character_list.json */; };
@@ -125,7 +124,6 @@
 		E6DC32D0284D9BE500945127 /* ThumbnailTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailTests.swift; sourceTree = "<group>"; };
 		E6DC32D3284DAC1800945127 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		E6DC32D9284E4B1C00945127 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
-		E6DC32DD284EE25E00945127 /* CharacterDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsViewModelTests.swift; sourceTree = "<group>"; };
 		E6DC32DF284EEBA200945127 /* NetworkApiClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkApiClientTests.swift; sourceTree = "<group>"; };
 		E6DC32E1284EEBB700945127 /* MockerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockerData.swift; sourceTree = "<group>"; };
 		E6DC32E4284EECA300945127 /* character_list.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = character_list.json; sourceTree = "<group>"; };
@@ -471,7 +469,6 @@
 			isa = PBXGroup;
 			children = (
 				E6B9B3E12850510700CA502E /* Coordinator */,
-				E6DC32DB284EE24400945127 /* CharacterDetails */,
 				E6DC32AA284AF7C900945127 /* CharactersList */,
 			);
 			path = Presentation;
@@ -553,22 +550,6 @@
 				E6DC32D3284DAC1800945127 /* Theme.swift */,
 			);
 			path = Theme;
-			sourceTree = "<group>";
-		};
-		E6DC32DB284EE24400945127 /* CharacterDetails */ = {
-			isa = PBXGroup;
-			children = (
-				E6DC32DC284EE24D00945127 /* ViewModel */,
-			);
-			path = CharacterDetails;
-			sourceTree = "<group>";
-		};
-		E6DC32DC284EE24D00945127 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				E6DC32DD284EE25E00945127 /* CharacterDetailsViewModelTests.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		E6DC32E3284EEC8B00945127 /* Resources */ = {
@@ -894,7 +875,6 @@
 				E6DC32AD284AF7F600945127 /* CharactersListViewModelTests.swift in Sources */,
 				E6B9B39A284FBF8C00CA502E /* NetworkApiClientMock.swift in Sources */,
 				E6B9B396284FBEF300CA502E /* CharactersQueriesRepositoryTests.swift in Sources */,
-				E6DC32DE284EE25E00945127 /* CharacterDetailsViewModelTests.swift in Sources */,
 				E6DC32B1284AFB0D00945127 /* CharactersMock.swift in Sources */,
 				E6DC32E2284EEBB700945127 /* MockerData.swift in Sources */,
 				E6DC32E0284EEBA200945127 /* NetworkApiClientTests.swift in Sources */,
